@@ -1,1 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caminos entrelazados</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
 
+  <div id="Eres un joven en el siglo XIX en Colombia, durante una época marcada por la esclavitud. Tu historia comienza en una plantación donde tomas decisiones que afectarán tu vida y la de los demás a tu alrededor.">
+    <h1 id="story"> Despiertas al amanecer, el sol se eleva sobre la plantación. Tus decisiones determinarán cómo enfrentarás las difíciles realidades de la esclavitud.</h1>
+    <div id="options">
+      <button onclick="makeDecision(1)">Ir a trabajar en los campos</button>
+      <button onclick="makeDecision(2)">Intentar escapar</button>
+    </div>
+  </div>
+
+  <script>
+    let storyElement = document.getElementById("story");
+    let optionsElement = document.getElementById("options");
+
+    function startGame() {
+      storyElement.innerHTML = "Has comenzado el juego. Elige tu destino.";
+      optionsElement.innerHTML = '<button onclick="makeDecision(1)">Decisión 1</button>' +
+                                 '<button onclick="makeDecision(2)">Decisión 2</button>';
+    }
+
+    function makeDecision(choice) {
+      if (choice === 1) {
+        storyElement.innerHTML = "Has tomado la decisión 1. Esto es lo que sucede después...";
+        optionsElement.innerHTML = '<button onclick="makeDecision(3)">Siguiente paso</button>';
+      } else if (choice === 2) {
+        storyElement.innerHTML = "Has tomado la decisión 2. Esto es lo que sucede después...";
+        optionsElement.innerHTML = '<button onclick="makeDecision(4)">Siguiente paso</button>';
+      } else if (choice === 3) {
+        storyElement.innerHTML = "Has avanzado en la historia después de la decisión 1.";
+        optionsElement.innerHTML = '<button onclick="startGame()">Reiniciar</button>';
+      } else if (choice === 4) {
+        storyElement.innerHTML = "Has avanzado en la historia después de la decisión 2.";
+        optionsElement.innerHTML = '<button onclick="startGame()">Reiniciar</button>';
+      }
+    }
+
+    // Inicia el juego al cargar la página
+    startGame();
+  </script>
+
+</body>
+</html>
